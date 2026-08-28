@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aperte o Play 360 — Sua festa, inesquecível</title>
+<meta name="description" content="Locação de plataforma 360, cama elástica, piscina de bolinhas e drone. Entrega, montagem e retirada inclusas.">
+<link rel="icon" type="image/png" href="marca/play360.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="is-loading">
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor-dot"></span>
+  <span class="cursor-ring"></span>
+  <span class="cursor-label"></span>
+</div>
+
+<div class="preloader" id="preloader">
+  <span class="preloader-word"><i>Aperte o</i> Play 360</span>
+  <span class="preloader-bar"><i></i></span>
+</div>
+
+<div class="scroll-rail" aria-hidden="true"><i id="scrollRail"></i></div>
+
+<header class="topbar" id="topbar">
+  <a class="logo" href="#top" data-magnetic>
+    <img class="logo-mark" src="marca/play360.png" alt="" width="153" height="153">
+    <span class="logo-word"><i>Aperte o</i> Play 360</span>
+  </a>
+  <nav class="nav">
+    <ul>
+      <li><a class="is-active" href="#top">Destaques</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#orcamento">Contato</a></li>
+    </ul>
+  </nav>
+  <div class="tools">
+    <button class="quote-pill is-empty" type="button" id="quotePill" data-magnetic data-cursor="Lista">
+      <span>Orçamento</span><b id="quoteCount">0</b>
+    </button>
+    <button class="icon-btn" type="button" aria-label="Favoritos" data-magnetic data-cursor="Salvar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="hero" data-theme-section>
+   <div class="hero-inner">
+
+    <div class="hero-slot" id="heroSlot" data-cursor="Arraste"></div>
+
+    <div class="copy">
+      <div class="arrows">
+        <button class="arrow" type="button" id="prev" aria-label="Produto anterior" data-magnetic>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+        </button>
+        <button class="arrow" type="button" id="next" aria-label="Próximo produto" data-magnetic>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+        </button>
+      </div>
+
+      <h1 class="headline" data-split><span>Sua festa</span><span>inesquecível</span></h1>
+
+      <p class="lede" data-split-lines>
+        Não é só alugar um equipamento. É o momento em que todo mundo para,
+        olha e sorri. Cada item chega limpo, montado e testado antes de a
+        festa começar — você só precisa aproveitar.
+      </p>
+
+      <a class="cta" href="#orcamento" data-magnetic data-cursor="Orçamento">
+        <span class="cta-fill"></span>
+        <span class="cta-text">Fazer orçamento</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+      </a>
+    </div>
+
+    <aside class="buy">
+      <p class="product-name" id="productName">Plataforma 360</p>
+      <div class="tiers" id="tiers"></div>
+      <p class="price" id="price">R$ 350</p>
+      <p class="price-note" id="priceNote">2 horas · montagem inclusa</p>
+    </aside>
+
+    <div class="socials">
+      <a href="#" aria-label="Instagram" data-magnetic><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Facebook" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.63C16.5 3.56 15.5 3.5 14.35 3.5c-2.4 0-4.05 1.47-4.05 4.16V9.9H7.6V13h2.7v8z"/></svg></a>
+      <a href="#" aria-label="WhatsApp" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.35A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.25l-.3-.18-3.1.8.83-3-.2-.31A8.2 8.2 0 0 1 12 3.8Zm-3.1 4.3c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.7 4.18 3.68 2.06.81 2.48.65 2.93.61.45-.04 1.44-.59 1.65-1.16.2-.57.2-1.05.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.47-.4-.41-.55-.41Z"/></svg></a>
+      <a href="#" aria-label="TikTok" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3h-2.8v12.1a2.6 2.6 0 1 1-2.1-2.55V9.7a5.7 5.7 0 1 0 5 5.65V9.2a6.6 6.6 0 0 0 3.7 1.13V7.45A3.9 3.9 0 0 1 16.5 3Z"/></svg></a>
+    </div>
+
+    <div class="rail" id="rail">
+      <button class="rail-slot" type="button" data-slot="0" aria-label="Próximo produto" data-cursor="Trocar"></button>
+      <button class="rail-slot" type="button" data-slot="1" aria-label="Produto" data-cursor="Trocar"></button>
+      <button class="rail-slot" type="button" data-slot="2" aria-label="Produto" data-cursor="Trocar"></button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+   </div>
+  </section>
+
+  <!-- ══════════════ MARQUEE ══════════════ -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee">
+      <!-- one group; the script clones it until the strip is wide enough to
+           slide by a whole group without ever showing a gap -->
+      <div class="marquee-group">
+        <span>Montagem inclusa</span><span>·</span>
+        <span>Higienizado a cada evento</span><span>·</span>
+        <span>Entrega e retirada</span><span>·</span>
+        <span>Suporte no dia</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ COMO FUNCIONA (pinada) ══════════════ -->
+  <section class="craft" id="como-funciona" data-theme-section data-theme="piscina-de-bolinhas">
+    <div class="craft-pin" id="craftPin">
+      <div class="craft-art" id="craftArt"></div>
+      <div class="craft-copy">
+        <p class="eyebrow" data-reveal>Como funciona</p>
+        <h2 class="craft-title" data-split><span>Chega pronto</span><span>para usar</span></h2>
+        <ul class="specs">
+          <li data-spec><b>Entrega e montagem</b><span>A gente leva, monta e testa tudo antes de os convidados chegarem.</span></li>
+          <li data-spec><b>Higienização total</b><span>Cada equipamento é limpo e revisado depois de todo evento.</span></li>
+          <li data-spec><b>Operador no local</b><span>Cabine 360 e drone vão acompanhados de um profissional.</span></li>
+          <li data-spec><b>Retirada sem pressa</b><span>Buscamos no dia seguinte, sem custo adicional.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CATÁLOGO (horizontal) ══════════════ -->
+  <section class="colorways" id="catalogo" data-theme-section data-theme="cama-elastica">
+    <div class="colorways-pin" id="colorwaysPin">
+      <header class="colorways-head">
+        <p class="eyebrow" data-reveal>Nosso catálogo</p>
+        <h2 class="section-title" data-split><span>Escolha a</span><span>sua atração</span></h2>
+      </header>
+      <div class="colorways-track" id="colorwaysTrack"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ORÇAMENTO ══════════════ -->
+  <section class="order" id="orcamento" data-theme-section data-theme="cabine-360">
+    <h2 class="order-title" data-split><span>Vamos marcar</span><span>a sua data</span></h2>
+    <figure class="contact-card">
+      <img src="produtos/contato.png" alt="Atendimento Aperte o Play 360" width="112" height="112">
+      <figcaption>Jhonatan · atendimento</figcaption>
+    </figure>
+
+    <a class="cta cta-lg" id="waCta" href="https://wa.me/5561995961143" target="_blank" rel="noopener" data-magnetic data-cursor="Chamar">
+      <span class="cta-fill"></span>
+      <span class="cta-text">Falar no WhatsApp</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+    </a>
+    <footer class="foot">
+      <span>© 2026 Aperte o Play 360</span>
+      <span>Feito com Three.js · GSAP · Lenis</span>
+    </footer>
+  </section>
+
+</main>
+
+<div class="q-scrim" id="quoteScrim"></div>
+
+<aside class="q-drawer" id="quoteDrawer" aria-label="Minha lista de orçamento">
+  <header class="q-head">
+    <h2>Meu orçamento</h2>
+    <button class="q-close" type="button" id="quoteClose" aria-label="Fechar">×</button>
+  </header>
+
+  <p class="q-empty" id="quoteEmpty">
+    Sua lista está vazia. Escolha os equipamentos e eles aparecem aqui com o total.
+  </p>
+
+  <ul class="q-list" id="quoteList"></ul>
+
+  <footer class="q-foot">
+    <div class="q-total"><span>Total</span><b id="quoteTotal">R$ 0</b></div>
+    <p class="q-note" id="quoteNote" hidden>Há item sob consulta — o valor dele entra na conversa.</p>
+    <a class="q-send" id="quoteSend" href="https://wa.me/5561995961143" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.35A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.25l-.3-.18-3.1.8.83-3-.2-.31A8.2 8.2 0 0 1 12 3.8Zm-3.1 4.3c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.7 4.18 3.68 2.06.81 2.48.65 2.93.61.45-.04 1.44-.59 1.65-1.16.2-.57.2-1.05.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.47-.4-.41-.55-.41Z"/></svg>
+      Enviar no WhatsApp
+    </a>
+  </footer>
+</aside>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
