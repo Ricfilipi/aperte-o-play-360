@@ -30,7 +30,7 @@ npm run preview    # serve o dist em :4173
 > É um projeto ESM — precisa de servidor. Abrir o `index.html` por `file://`
 > não funciona (CORS bloqueia módulos).
 
-**Pré-requisitos:** Node.js 20+ e npm. Não há banco de dados, backend nem
+**Pré-requisitos:** Node.js 22+ e npm. Não há banco de dados, backend nem
 variáveis de ambiente — é um site estático; tudo que o visitante escolhe vive
 em `localStorage` e sai por um link do WhatsApp. As ferramentas de `tools/`
 pedem um Google Chrome instalado (veja abaixo).
