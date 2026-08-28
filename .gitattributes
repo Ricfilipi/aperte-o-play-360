@@ -1,0 +1,14 @@
+# Normaliza o fim de linha: LF no repositório, nativo no disco de quem clona.
+* text=auto eol=lf
+
+# Binários — nunca converter nem tentar dar diff.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.woff binary
+*.woff2 binary
+
+# Fora das estatísticas de linguagem: é lockfile gerado, não código escrito.
+package-lock.json linguist-generated=true
